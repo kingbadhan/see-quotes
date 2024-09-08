@@ -8,7 +8,6 @@ const express = require("express");
 const app = express();
 let port = 8080;
 const path = require("path");
-const methodOverride = require("method-override");
 
 let posts = [
   { id: uNm(), username: "king_badhan", content: "my trust is at 0% for everyOne" },
@@ -20,7 +19,6 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended: true}));
 
 app.get("/", (req, res) => res.render("home"));
